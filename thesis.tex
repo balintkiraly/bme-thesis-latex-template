@@ -1,0 +1,108 @@
+% !TeX spellcheck = hu_HU
+% !TeX encoding = UTF-8
+% !TeX program = xelatex
+% TODO Change language to en_GB (recommended) or en_US for English documents
+\documentclass[11pt,a4paper,oneside]{report}             % Single-side
+%\documentclass[11pt,a4paper,twoside,openright]{report}  % Duplex
+
+\input{include/packages}
+
+%TODO Set the main variables
+\newcommand{\vikszerzoVezeteknev}{Gipsz}
+\newcommand{\vikszerzoKeresztnev}{Jakab}
+
+\newcommand{\vikkonzulensAMegszolitas}{dr.~}
+\newcommand{\vikkonzulensAVezeteknev}{Konzulens}
+\newcommand{\vikkonzulensAKeresztnev}{Egy}
+
+\newcommand{\vikkonzulensBMegszolitas}{}
+\newcommand{\vikkonzulensBVezeteknev}{Konzulens}
+\newcommand{\vikkonzulensBKeresztnev}{Kettő}
+
+\newcommand{\vikkonzulensCMegszolitas}{}
+\newcommand{\vikkonzulensCVezeteknev}{}
+\newcommand{\vikkonzulensCKeresztnev}{}
+
+\newcommand{\vikcim}{Elektronikus terelők} % Cím
+\newcommand{\viktanszek}{\bmemit} % Tanszék
+\newcommand{\vikdoktipus}{\bsc} % Dokumentum típusa (\bsc vagy \msc)
+\newcommand{\vikmunkatipusat}{szakdolgozatot} % a "hallgató nyilatkozat" részhez: szakdolgozatot vagy diplomatervet
+
+\input{include/tdk-variables}
+\newcommand{\szerzoMeta}{\vikszerzoVezeteknev{} \vikszerzoKeresztnev} % egy szerző esetén
+%\newcommand{\szerzoMeta}{\vikszerzoVezeteknev{} \vikszerzoKeresztnev, \tdkszerzoB} % két szerző esetén
+
+%TODO Language configuration -- choose one
+% Beállítások magyar nyelvű dolgozathoz
+%\input{include/thesis-hu}
+% Settings for English documents
+\input{include/thesis-en}
+
+\input{include/preamble}
+
+%--------------------------------------------------------------------------------------
+% Table of contents and the main text
+%--------------------------------------------------------------------------------------
+\begin{document}
+
+\pagenumbering{gobble}
+
+%TODO These includes define guidelines -- remove these
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\include{include/guideline}
+\include{include/project}
+
+\selectthesislanguage
+
+%TODO Titlepage -- choose one from below
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\include{include/titlepage}		   % Szakdolgozat/Diplomaterv címlap
+%\include{include/titlepage-tdk}	% TDK címlap
+%\include{include/titlepage-otdk}   % OTDK címlap
+
+
+% Table of Contents
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\tableofcontents\vfill
+
+
+% Declaration and Abstract
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\include{include/declaration} %TODO Hallgatói nyilatkozat -- TDK és OTDK esetén törlendő!
+\include{content/abstract}    %TODO Összefoglaló -- TDK és OTDK esetén nem kötelező
+
+
+% The main part of the thesis
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\pagenumbering{arabic}
+
+%TODO import your own content
+\include{content/introduction}
+\include{content/latex-tools}
+\include{content/thesis-format}
+\include{content/template-usage}
+
+
+% Acknowledgements
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\include{content/acknowledgement}
+
+
+% List of Figures, Tables
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%\listoffigures\addcontentsline{toc}{chapter}{\listfigurename}
+%\listoftables\addcontentsline{toc}{chapter}{\listtablename}
+
+
+% Bibliography
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\addcontentsline{toc}{chapter}{\bibname}
+\bibliography{bib/mybib}
+
+
+% Appendix
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\include{content/appendices}
+
+%\label{page:last}
+\end{document}
