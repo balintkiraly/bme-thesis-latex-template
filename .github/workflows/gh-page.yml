@@ -3,7 +3,7 @@ name: Deploy GitHub page
 on:
   push:
     branches:
-      - deploy-to-gh-page
+      - master
 
 jobs:
   deploy:
