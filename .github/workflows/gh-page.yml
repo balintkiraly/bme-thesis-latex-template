@@ -10,11 +10,9 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
-      - name: Install dependencies
+      - name: Install dependencies 🥚
         run: sudo apt-get install texlive-xetex
-      - name: Create public folder
-        run: mkdir public
-      - name: Run Make
+      - name: Run Make 🐣
         run: make
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.7.1
