@@ -1,0 +1,16 @@
+name: Deploy GitHub page
+
+on:
+  push:
+    branches:
+      - deploy-to-gh-page
+
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: sudo apt-get install texlive-xetex
+      - name: Run Make
+        run: make
